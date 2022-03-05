@@ -131,11 +131,18 @@ margin:auto;
 
 @media only screen and (max-width: 650px) {
 	.navBar {
-		height:110px;
+		height:90px;
 		width:100vw;
-		min-width:614px;
 	}
 	.navItem {
-		font-size:1.2em;
+		font-size:0.8em;
+	}
+	#container {
+		grid-gap:0.1vw;
+		 height:calc(99% - 90px);
+		aspect-ratio: 1/1;
+		grid-template-rows: repeat(var(--grid-rows), 3.34vw);
+		grid-template-columns: repeat(var(--grid-cols), 3.34vw);	
+		width:100%;
 	}
 }
