@@ -1,0 +1,141 @@
+:root {
+  --grid-cols: 1;
+  --grid-rows: 1;
+  --transition-time-long: 800ms;
+  --transition-time-short: 100ms;
+}
+
+body,html {
+  width:100%;
+  height:100%;
+  padding:0;
+  margin: 0;
+}
+
+.navBar {
+  z-index: 999;
+  width:100%;
+  height:65px;
+  background-color: rgb(17, 17, 17);
+  color:rgb(226, 216, 197);
+  display: flex;
+  justify-content:space-around;
+}
+.navBar .navItem { 
+  width:auto;
+  margin:auto;
+  border-radius: 5px;  
+  text-align: center;
+  background-color: rgb(51, 51, 51);
+  padding:10px;
+}
+
+.navBar .navItem:hover {
+  background-color: rgb(87, 163, 157);
+  color: rgb(245, 245, 245);
+}
+.navBar .navItem-active {
+  background-color: rgb(99, 99, 99);
+}
+
+
+#container {
+margin:auto;
+  z-index: 0;
+  display: grid;
+  height:calc(99% - 50px);
+  aspect-ratio: 1/1;
+  grid-gap: 2px;
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+.grid-item {
+  border: 1px solid rgba(56, 56, 56, 0.164);
+  border-radius: 3px;
+  text-align: center;
+  transition: all 0.2s;
+  transition: background-color 200ms linear;
+  width:100%;
+  height:100%;
+  z-index: 5;
+}
+.active-1 {
+  background-color: rgb(78, 218, 136);
+  border-radius: 7px;
+  transition: all var(--transition-time-long);
+}
+
+.grid-item:hover {
+  background-color: rgba(73, 160, 70, 0.253);
+}
+
+.target {
+  background-color: rgb(73, 73, 73);
+  transition: all var(--transition-time-short);
+}
+.finish {
+  background-color: rgb(67, 88, 71);
+  transition: all var(--transition-time-short);
+}
+
+.found {
+  background-color: rgb(64, 124, 75);
+  transition: all var(--transition-time-short);
+}
+.wall {
+  background-color: tomato;
+  transition: all var(--transition-time-short);
+}
+.path {
+  background-color: rgba(50, 119, 209, 0.966);
+  transition: all var(--transition-time-short);
+}
+
+.dropdown {
+
+}
+.dropdown .menu.menuActive {
+  width:100px;
+  height: auto;
+  list-style: none;
+  display: block;
+}
+.dropdown .menu.menuInActive {
+  display:none;
+}
+.dropdown ul.menu {
+  width:100%;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 99000;
+
+}
+.dropdown .menu li {
+  text-align:center;
+  margin-top:5px;
+  justify-content: center;
+  display: flex;
+  width:100%;
+  height:40px;
+  border-radius: 5px;
+  z-index: 9999999;
+}
+
+.dropdown .menu li:hover {
+  background-color: rgb(47, 49, 49);
+}
+
+@media only screen and (max-width: 650px) {
+	.navBar {
+		height:110px;
+		width:100vw;
+		min-width:614px;
+	}
+	.navItem {
+		font-size:1.2em;
+	}
+}
