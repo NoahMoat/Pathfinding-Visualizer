@@ -18,7 +18,8 @@ var flags = [];
 var navBarButtons = [];
 var state = "walls";
 var renderState = 'AStar';
-var gridWidth = 25;
+var gridWidth = 29;
+var gridHeight = 25;
 var speed = 10;
 var FASTRENDER = false;
 

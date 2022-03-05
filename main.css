@@ -1,7 +1,7 @@
 :root {
   --grid-cols: 1;
   --grid-rows: 1;
-  --transition-time-long: 600ms;
+  --transition-time-long: 800ms;
   --transition-time-short: 100ms;
 }
 
@@ -15,7 +15,7 @@ body,html {
 .navBar {
   z-index: 999;
   width:100%;
-  height:50px;
+  height:65px;
   background-color: rgb(17, 17, 17);
   color:rgb(226, 216, 197);
   display: flex;
@@ -40,6 +40,7 @@ body,html {
 
 
 #container {
+margin:auto;
   z-index: 0;
   display: grid;
   height:calc(99% - 50px);
@@ -110,7 +111,7 @@ body,html {
   display:flex;
   flex-direction: column;
   justify-content: space-around;
-  z-index: 998;
+  z-index: 99000;
 
 }
 .dropdown .menu li {
@@ -121,9 +122,20 @@ body,html {
   width:100%;
   height:40px;
   border-radius: 5px;
-  z-index: 998;
+  z-index: 9999999;
 }
 
 .dropdown .menu li:hover {
   background-color: rgb(47, 49, 49);
+}
+
+@media only screen and (max-width: 650px) {
+	.navBar {
+		height:110px;
+		width:100vw;
+		min-width:614px;
+	}
+	.navItem {
+		font-size:1.2em;
+	}
 }

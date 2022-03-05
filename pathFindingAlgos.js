@@ -84,7 +84,7 @@ function dijkstra() {
                     allNodes[curIndex-gridWidth],
                     allNodes[curIndex+1],
                     allNodes[curIndex+gridWidth]];
-                    if (curIndex+1%gridWidth == 0) {
+                    if ((curIndex+1)%gridWidth == 0) {
                       neighbors[2] = null;
                     }
                     if (curIndex%gridWidth == 0) {
@@ -169,25 +169,22 @@ function AStar () {
       }
 
       let curIndex = allNodes.indexOf(currentNode);
-
       let neighbors = [allNodes[curIndex-1],
                     allNodes[curIndex-gridWidth],
                     allNodes[curIndex+1],
                     allNodes[curIndex+gridWidth]];
-      if (curIndex+1%gridWidth == 0) {
-        neighbors[2] = null;
-      }
-      if (curIndex%gridWidth == 0) {
-        neighbors[0] = null;
-      }
+					if ((curIndex+1)%gridWidth == 0) {
+                      neighbors[2] = null;
+                    }
+                    if ((curIndex)%gridWidth == 0) {
+                      neighbors[0] = null;
+                    }
       currentNode.item.classList.add('active-1');
 
-
       neighbors.forEach( item => {
-
         if (item == undefined || item == null ||
            closedSet.includes(item) ||
-            item.item.classList.contains('wall')) {return};
+            item.item.classList.contains('wall')) {return;};
 
             curCost = currentNode.gCost + heuristicCostEstimate(currentNode,item);
             if (curCost < item.gCost || !TheOpenSet.includes(item)) {
@@ -237,6 +234,7 @@ function shuffle(array) {
 
 
 function genMaze() {
+	console.log('test');
   let allNodes = [];
   let unexplored = [];
   let currentNode = null;
@@ -267,33 +265,34 @@ function genMaze() {
       {node:allNodes[curIndex-gridWidth],active:true},
       {node:allNodes[curIndex+1],active:true},
       {node:allNodes[curIndex+gridWidth],active:true}];
-      if (curIndex+1%gridWidth == 0) {
+      if ((curIndex+1)%gridWidth == 0) {
         neighbors[2].active = false;
       }
-      if (curIndex%gridWidth == 0) {
+      if ((curIndex)%gridWidth == 0) {
         neighbors[0].active = false;
       }
-      if (curIndex-gridWidth < 0) {
+      if ((curIndex-gridWidth) < 0) {
         neighbors[1].active = false;
       }
-      if (curIndex+gridWidth > gridWidth*gridWidth) {
+      if ((curIndex+gridWidth) > gridWidth*gridWidth) {
         neighbors[3].active = false;
       }
 
-      if (Math.floor(Math.random()*5)==1) {
-      //shuffle(neighbors);
-      }
+
+		let randDir = Math.random()*3;
+		console.log(randDir);
 
         function walls(arr) {
           var result = 0;
           arr.forEach(item => {
             if (item.active == false ||
               !unexplored.includes(item.node)) {return;}
+			  
               item.node.item.classList.add('wall');
               unexplored.splice(unexplored.indexOf(item.node),1);
           });
         }
-       
+       walls()
 
       
       its++;
