@@ -41,6 +41,7 @@ body,html {
 
 #container {
 margin:auto;
+margin-left:22%;
   z-index: 0;
   display: grid;
   height:calc(99% - 50px);
@@ -128,14 +129,20 @@ margin:auto;
 .dropdown .menu li:hover {
   background-color: rgb(47, 49, 49);
 }
+#how-to-use {
+position: absolute;
+top:100px;
+left:20px;
+width:20%;
+}
 
 @media only screen and (max-width: 650px) {
 	.navBar {
 		height:90px;
-		width:100vw;
+		width:100%;
 	}
 	.navItem {
-		font-size:0.8em;
+		font-size:0.7em;
 	}
 	#container {
 		grid-gap:0.1vw;
@@ -144,5 +151,19 @@ margin:auto;
 		grid-template-rows: repeat(var(--grid-rows), 3.34vw);
 		grid-template-columns: repeat(var(--grid-cols), 3.34vw);	
 		width:100%;
+	}
+}
+
+@media only screen and (max-width: 811px) {
+	#how-to-use {
+		width:90%;
+		margin:0;
+		left:5;
+		top:130vw;
+		
+	}
+	#container {
+	margin-left:0;
+	margin:auto;
 	}
 }
